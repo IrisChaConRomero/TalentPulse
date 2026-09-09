@@ -85,4 +85,4 @@ npm run dev
 cd backend
 python manage.py test
 ```
-*Resultado: 7/7 tests ejecutados con éxito.*
+*Resultado: 8/8 tests ejecutados con éxito.*
