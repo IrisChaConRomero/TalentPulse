@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: talentpulse-backend
+    env: python
+    buildCommand: "./deployment/build.sh"
+    startCommand: "gunicorn talentpulse_core.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.1
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 2
+
+  - type: web
+    name: talentpulse-frontend
+    env: static
+    buildCommand: "cd frontend && npm install && npm run build"
+    staticPublishPath: "./frontend/dist"
